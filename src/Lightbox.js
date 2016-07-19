@@ -1,18 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { create } from 'jss';
-import reactJss from 'react-jss';
-import camelCase from 'jss-camel-case';
-import px from 'jss-px';
-import nested from 'jss-nested';
-import vendorPrefixer from 'jss-vendor-prefixer';
 import Swipeable from 'react-swipeable';
-
-export let jss = create();
-export let useSheet = reactJss(jss);
-jss.use(camelCase());
-jss.use(nested());
-jss.use(px());
-jss.use(vendorPrefixer());
 
 import utils from './utils';
 import Fade from './Fade';
@@ -311,4 +298,4 @@ Lightbox.defaultProps = {
 	width: 900,
 };
 
-export default useSheet(Lightbox, defaultStyles);
+export default Lightbox
