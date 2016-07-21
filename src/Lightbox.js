@@ -37,17 +37,16 @@ class Lightbox extends Component {
 
 		if (nextProps.isOpen && nextProps.enableKeyboardInput) {
 			window.addEventListener('keydown', this.handleKeyboardInput);
-			window.addEventListener('resize', this.handleResize);
-			this.handleResize();
-		} else {
-			window.removeEventListener('keydown', this.handleKeyboardInput);
-			window.removeEventListener('resize', this.handleResize);
 		}
 
 		if (nextProps.isOpen) {
+      window.addEventListener('resize', this.handleResize);
+      this.handleResize();
 			utils.bodyScroll.blockScroll();
 		} else {
+      window.removeEventListener('resize', this.handleResize);
 			utils.bodyScroll.allowScroll();
+      window.removeEventListener('keydown', this.handleKeyboardInput);
 		}
 	}
 

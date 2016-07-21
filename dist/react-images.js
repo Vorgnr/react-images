@@ -226,17 +226,16 @@ var Lightbox = (function (_Component) {
 
 			if (nextProps.isOpen && nextProps.enableKeyboardInput) {
 				window.addEventListener('keydown', this.handleKeyboardInput);
-				window.addEventListener('resize', this.handleResize);
-				this.handleResize();
-			} else {
-				window.removeEventListener('keydown', this.handleKeyboardInput);
-				window.removeEventListener('resize', this.handleResize);
 			}
 
 			if (nextProps.isOpen) {
+				window.addEventListener('resize', this.handleResize);
+				this.handleResize();
 				_utils2['default'].bodyScroll.blockScroll();
 			} else {
+				window.removeEventListener('resize', this.handleResize);
 				_utils2['default'].bodyScroll.allowScroll();
+				window.removeEventListener('keydown', this.handleKeyboardInput);
 			}
 		}
 
